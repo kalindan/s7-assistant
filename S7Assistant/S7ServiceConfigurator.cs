@@ -22,7 +22,8 @@ namespace S7Assistant
                         var logger = services.GetRequiredService<ILogger<Gateway>>();
                         return new Gateway(ip, logger);
                     })
-                .AddSingleton<IDBTracer<T>, DBTracer<T>>();
+                .AddSingleton<IDBTracer<T>, DBTracer<T>>()
+                .AddSingleton<LivePlot>();
         }
         public IServiceProvider Build()
         {
